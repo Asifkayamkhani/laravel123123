@@ -65,10 +65,10 @@
                                 <label for="">Condition</label>
                                 <select type="text" name="condition" class="form-control" id="">
                                     <option value="" selected disebled></option>
-                                    <option value="0"<?php echo $data->status==0 ? "selected":"" ?>>Oldest product</option>
-                                    <option value="1"<?php echo $data->status==1 ? "selected":"" ?>>Latest product</option>
-                                    <option value="2"<?php echo $data->status==2 ? "selected":"" ?>>Trending product</option>
-                                    <option value="3"<?php echo $data->status==3 ? "selected":"" ?>>Category product</option>
+                                    <option value="0"<?php echo $data->condition==0 ? "selected":"" ?>>Oldest product</option>
+                                    <option value="1"<?php echo $data->condition==1 ? "selected":"" ?>>Latest product</option>
+                                    <option value="2"<?php echo $data->condition==2 ? "selected":"" ?>>Trending product</option>
+                                    <option value="3"<?php echo $data->condition==3 ? "selected":"" ?>>Category product</option>
                                 </select>
                             </div>
                             <div class="col-sm-12 mt-3">

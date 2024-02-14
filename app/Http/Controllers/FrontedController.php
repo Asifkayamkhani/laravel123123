@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 use App\Models\category;
 use App\Models\product;
 use App\Models\banner;
 use App\Models\Testimonial;
+use App\Models\Cartss;
 // use App\Models\Productgellery;
 
 class FrontedController extends Controller
@@ -19,11 +21,15 @@ class FrontedController extends Controller
         return view('fronted.index',compact('category','banner','pro','google'));
     }
     public function cart(){
-        return view('fronted.cart');
+        if (Session::has('user')) {
+            $cart=Cartss::where('profile_id',Session::get('user'))->get();
+        return view('fronted.cart',compact('cart'));           
+        }else {
+            return redirect('login-fronted');
+            Session()->flash('error','details are not valid');
+        }
     }
-    public function login(){
-        return view('fronted.login');
-    }
+
     public function pro($id){
         $product=product::where('slug',$id)->get();
         return view('fronted.pro-details',compact('product'));

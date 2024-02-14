@@ -12,6 +12,8 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\FrontedController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -187,7 +189,6 @@ Route::group(['middleware'=>'auth'],function(){
 
 Route::get('home',[FrontedController::class,'home']);
 Route::get('cart',[FrontedController::class,'cart']);
-Route::get('login-fronted',[FrontedController::class,'login']);
 Route::get('pro-details/{slug}',[FrontedController::class,'pro']);
 Route::get('checkout',[FrontedController::class,'checkout']);
 Route::get('blog',[FrontedController::class,'blog']);
@@ -197,7 +198,26 @@ Route::get('contact',[FrontedController::class,'contact']);
 Route::get('category/{slug}',[FrontedController::class,'category']);
 
 
+// Add to cart login register 
+Route::get('register-fronted',[ProfileController::class,'register']);
+Route::post('register-fronted',[ProfileController::class,'save_register']);
 
+Route::get('login-fronted',[ProfileController::class,'login']);
+Route::post('login-fronted',[ProfileController::class,'save_login']);
+
+
+// Forget password cart login page 
+Route::get('email1', [ProfileController::class,'email']);
+Route::post('email1', [ProfileController::class,'send_otp']);
+
+Route::get('verify_otp1/{id}', [ProfileController::class,'otp']);
+Route::post('verify_otp1/{id}', [ProfileController::class,'verify_otp']);
+
+Route::get('change_password1/{id}', [ProfileController::class,'password']);
+Route::post('change_password1/{id}', [ProfileController::class,'change_password']);   
+
+
+Route::get('add-cart/{id}',[CartController::class,'addtocart']);
 
 
 

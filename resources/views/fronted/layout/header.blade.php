@@ -161,7 +161,7 @@
                                         </a>
                                     </div>
                                 </li>
-                                <li> <a href="{{url('login-fronted')}}"><span class="flaticon-user"></span></a></li>
+                                <li> <a href="{{url('cart')}}"><span class="flaticon-user"></span></a></li>
                                 <li class="cart"><a href="{{url('cart')}}"><span
                                             class="flaticon-shopping-cart"></span></a>
                                 </li>

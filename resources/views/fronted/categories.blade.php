@@ -168,7 +168,7 @@
                             <div class="properties pb-30">
                                 <div class="properties-card">
                                     <div class="properties-img">
-                                        <a href="pro-details.html"><img src="{{asset('uploades/'.$val->image)}}"
+                                        <a href="{{url('pro-details/'.$val->slug)}}"><img src="{{asset('uploades/'.$val->image)}}"
                                                 alt></a>
                                         <div class="socal_icon">
                                             <a href="#"><i class="ti-shopping-cart"></i></a>
@@ -177,7 +177,7 @@
                                         </div>
                                     </div>
                                     <div class="properties-caption properties-caption2">
-                                        <h3><a href="pro-details.html">{{$val->name}}</a></h3>
+                                        <h3><a href="{{url('pro-details/'.$val->slug)}}">{{$val->name}}</a></h3>
                                         <div class="properties-footer">
                                             <div class="price">
                                                 <span><i class="fa fa-inr"></i>{{$val->price}}

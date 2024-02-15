@@ -58,12 +58,12 @@
                             <td>
                                 <div class="product_count">
                                     <span class="input-number-decrement"> <i class="ti-minus"></i></span>
-                                    <input class="input-number" type="text" value="1" min="0" max="10">
+                                    <input class="input-number" type="text" value="{{$val->qty}}" min="0" max="10">
                                     <span class="input-number-increment"> <i class="ti-plus"></i></span>
                                 </div>
                             </td>
                             <td>
-                                <h5>{{$val->price}}</h5>
+                                <h5>{{$val->price * $val->qty}}</h5>
                             </td>
                         </tr>
                     
@@ -73,12 +73,14 @@
                             </td>
                             <td></td>
                             <td></td>
-                            <td>
+                            <td>    
                                 <div class="cupon_text float-right">
                                     <a class="btn" href="#">Close Coupon</a>
                                 </div>
                             </td>
                         </tr>
+                    @endforeach
+
                         <tr>
                             <td></td>
                             <td></td>
@@ -86,12 +88,20 @@
                                 <h5>Subtotal</h5>
                             </td>
                             <td>
-                                <h5>$2160.00</h5>
+                                <!-- @php
+                                $id=Session::get('user');
+                                $allamount=DB::table('cartsses')->where('profile_id',$id)->select('price','qty')->get();
+                                $count=0;
+                                foreach($allamount as $a){
+                                    $count+=$a->price * $a->qty;
+                                }
+                                @endphp -->
+                                <h5>{{$getdata::gettotal()}}</h5>
+                                <!-- <h5>{{$count}}</h5> -->
                             </td>
                         </tr>
                        
                     </tbody>
-                    @endforeach
                 </table>
                 <div class="checkout_btn_inner float-right">
                     <a class="btn" href="#">Continue Shopping</a>
